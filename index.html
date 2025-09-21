@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Bianca Sena • Data & AI Portfolio</title>
+<meta name="description" content="Portfólio de Bianca Sena — Dados, IA, Automação e Cloud."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { --ring: 0 0 0 3px rgba(14,165,233,.3) }
+  html { scroll-behavior: smooth }
+  .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.06) }
+  .card { transition: transform .25s ease, box-shadow .25s ease }
+  .card:hover { transform: translateY(-4px) }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-[Inter]">
+<header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <span class="inline-block w-9 h-9 rounded-xl ring-1 ring-white/10 overflow-hidden">
+        <img src="assets/profile.jpg" alt="Foto de perfil de Bianca" class="w-full h-full object-cover"/>
+      </span>
+      <span class="text-lg font-extrabold tracking-tight">Bianca Sena</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+      <a class="hover:text-white" href="#sobre">Sobre</a>
+      <a class="hover:text-white" href="#skills">Skills</a>
+      <a class="hover:text-white" href="#experiencia">Experiência</a>
+      <a class="hover:text-white" href="#projetos">Projetos</a>
+      <a class="hover:text-white" href="#contato">Contato</a>
+      <a class="hover:text-white" href="assets/Bianca_Sena_Resume.pdf" download>CV</a>
+    </nav>
+  </div>
+</header>
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10 opacity-20 pointer-events-none">
+    <div class="absolute -top-24 -left-24 w-[50rem] h-[50rem] rounded-full bg-cyan-500/10 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[50rem] h-[50rem] rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Dados, IA & Automação<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-fuchsia-400">com confiabilidade bancária</span>
+      </h1>
+      <p class="mt-5 text-slate-300 text-lg">
+        Soluções de <strong>ML, GenAI e Engenharia de Dados</strong> em produção. Experiência LATAM & Espanha em <strong>fraudes, SPB/PIX, pagamentos e governança</strong>.
+      </p>
+      <div class="mt-7 flex gap-3 flex-wrap">
+        <a href="#projetos" class="px-5 py-3 rounded-xl bg-cyan-500 text-slate-900 font-semibold hover:opacity-90">Ver Projetos</a>
+        <a href="assets/Bianca_Sena_Resume.pdf" download class="px-5 py-3 rounded-xl border border-white/20 hover:border-white/40">Baixar CV</a>
+        <a href="https://github.com/biancafsena" class="px-5 py-3 rounded-xl border border-white/20 hover:border-white/40" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/biancafsena" class="px-5 py-3 rounded-xl border border-white/20 hover:border-white/40" target="_blank">LinkedIn</a>
+      </div>
+      <p class="mt-4 text-sm text-slate-400">Disponível para desafios em Data, IA e Cloud.</p>
+    </div>
+    <div class="relative">
+      <div class="aspect-square rounded-3xl border border-white/10 glass p-2">
+        <img src="assets/profile.jpg" alt="Foto de Bianca" class="w-full h-full object-cover rounded-2xl"/>
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-white/5 border border-white/10 rounded-2xl px-4 py-2 text-sm">+6 anos em TI • Banking</div>
+      <div class="absolute -top-6 -right-6 bg-white/5 border border-white/10 rounded-2xl px-4 py-2 text-sm">Python • ML • Cloud</div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="max-w-7xl mx-auto px-4 py-16">
+  <div class="grid md:grid-cols-5 gap-10">
+    <div class="md:col-span-2">
+      <h2 class="text-3xl font-extrabold">Sobre</h2>
+      <p class="mt-4 text-slate-300">Python, SQL, Power BI, Databricks e Cloud (AWS/Azure). Do protótipo à operação (CI/CD, monitoramento, governança).</p>
+      <p class="mt-3 text-slate-400 text-sm">MBA em Data Science & AI (FIAP).</p>
+    </div>
+    <div class="md:col-span-3 grid sm:grid-cols-2 gap-6">
+      <div class="p-6 rounded-2xl border border-white/10 glass card">
+        <h3 class="font-semibold">Especialidades</h3>
+        <ul class="mt-3 space-y-2 text-slate-300 list-disc pl-5">
+          <li>ML/GenAI (LLMs), NLP, Explainable AI (SHAP/LIME)</li>
+          <li>ETL/ELT, Orquestração (Airflow), APIs (FastAPI)</li>
+          <li>MLOps e Observabilidade (GitLab CI/CD)</li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-2xl border border-white/10 glass card">
+        <h3 class="font-semibold">Setores</h3>
+        <p class="mt-3 text-slate-300">Bancário e financeiro (Santander, HSBC, PicPay, Travelex) — LATAM & Espanha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-extrabold">Tech Stack</h2>
+  <div class="mt-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">Linguagens</h4><p class="text-slate-300">Python, R, SQL, DAX</p></div>
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">ML & IA</h4><p class="text-slate-300">RN, Árvores, SVM, NLP, LLMs, SHAP/LIME</p></div>
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">Cloud & Dados</h4><p class="text-slate-300">AWS (Lambda, S3), Azure (Functions), Databricks</p></div>
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">Ferramentas</h4><p class="text-slate-300">Power BI, Tableau, Airflow, Docker/K8s</p></div>
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">Bancos</h4><p class="text-slate-300">PostgreSQL, SQL Server, MongoDB</p></div>
+    <div class="p-5 rounded-xl border border-white/10 glass card"><h4 class="font-semibold mb-2">Dev & Ops</h4><p class="text-slate-300">GitLab CI/CD, ServiceNow, Splunk, Zabbix</p></div>
+  </div>
+</section>
+
+<section id="experiencia" class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-extrabold">Experiência</h2>
+  <div id="exp-list" class="mt-8 grid gap-4"></div>
+</section>
+
+<section id="projetos" class="max-w-7xl mx-auto px-4 py-16">
+  <div class="flex items-end justify-between">
+    <h2 class="text-3xl font-extrabold">Projetos em Destaque</h2>
+    <a href="https://github.com/biancafsena" target="_blank" rel="noopener" class="text-sm text-slate-300 hover:text-white">Ver todos no GitHub →</a>
+  </div>
+  <div id="proj-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<section id="contato" class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-extrabold">Contato</h2>
+  <div class="mt-6 grid md:grid-cols-2 gap-6">
+    <div class="p-6 rounded-2xl border border-white/10 glass">
+      <p class="text-slate-300">Email: <a href="mailto:bia.bianca.sena@gmail.com" class="underline">bia.bianca.sena@gmail.com</a></p>
+      <p class="text-slate-300 mt-2">LinkedIn: <a href="https://www.linkedin.com/in/biancafsena" target="_blank" class="underline">linkedin.com/in/biancafsena</a></p>
+      <p class="text-slate-300 mt-2">GitHub: <a href="https://github.com/biancafsena" target="_blank" class="underline">github.com/biancafsena</a></p>
+    </div>
+    <form class="p-6 rounded-2xl border border-white/10 glass" onsubmit="event.preventDefault(); alert('Obrigado! Mensagem registrada (demo).');">
+      <label class="block text-sm text-slate-300">Seu nome</label>
+      <input class="mt-1 w-full bg-transparent border border-white/20 rounded-xl px-3 py-2"/>
+      <label class="block mt-4 text-sm text-slate-300">Email</label>
+      <input type="email" class="mt-1 w-full bg-transparent border border-white/20 rounded-xl px-3 py-2"/>
+      <label class="block mt-4 text-sm text-slate-300">Mensagem</label>
+      <textarea class="mt-1 w-full bg-transparent border border-white/20 rounded-xl px-3 py-2 h-28"></textarea>
+      <button class="mt-4 px-5 py-3 rounded-xl bg-cyan-500 text-slate-900 font-semibold hover:opacity-90">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<footer class="py-8 text-center text-slate-500 border-t border-white/10">© <span id="year"></span> Bianca Sena — Data • IA • Automação</footer>
+
+<script>
+async function loadJSON(path){ const r = await fetch(path); return await r.json(); }
+(async () => {
+  // Experience
+  const exp = await loadJSON('experience.json');
+  const expList = document.getElementById('exp-list');
+  exp.forEach(item => {
+    const card = document.createElement('article');
+    card.className = "p-6 rounded-2xl border border-white/10 glass card";
+    card.innerHTML = `
+      <div class="flex items-start justify-between gap-3">
+        <h3 class="font-semibold text-lg">${item.role}</h3>
+        <span class="text-xs text-slate-400">${item.period}</span>
+      </div>
+      <ul class="mt-3 text-slate-300 list-disc pl-5 space-y-1">
+        ${item.highlights.map(h => '<li>'+h+'</li>').join('')}
+      </ul>`;
+    expList.appendChild(card);
+  });
+
+  // Projects (rich)
+  const projs = await loadJSON('projects.json');
+  const grid = document.getElementById('proj-grid');
+  projs.forEach((p, idx) => {
+    const el = document.createElement('div');
+    el.className = "p-6 rounded-2xl border border-white/10 glass card";
+    const thumb = (p.images && p.images[0]) ? `<img src="${p.images[0]}" alt="thumb ${p.title}" class="w-full h-44 object-cover rounded-xl border border-white/10"/>` : "";
+    const metrics = (p.metrics||[]).map(m => `<div class='text-center'><div class='text-xl font-extrabold'>${m.value}</div><div class='text-xs text-slate-400'>${m.label}</div></div>`).join('');
+    const tags = (p.tags||[]).map(t => `<span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10">${t}</span>`).join('');
+    el.innerHTML = `
+      ${thumb}
+      <div class="mt-4 flex items-start justify-between gap-3">
+        <h3 class="font-semibold text-lg">${p.title}</h3>
+        <div class="flex gap-2">
+          ${p.repo ? `<a href="${p.repo}" target="_blank" class="text-sm underline">Repo</a>` : ""}
+          ${p.live ? `<a href="${p.live}" target="_blank" class="text-sm underline">Demo</a>` : ""}
+        </div>
+      </div>
+      <p class="mt-2 text-slate-300">${p.summary}</p>
+      <ul class="mt-3 text-slate-300 list-disc pl-5 space-y-1">${(p.highlights||[]).map(h=>`<li>${h}</li>`).join('')}</ul>
+      <div class="mt-4 grid grid-cols-3 gap-3">${metrics}</div>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs">${tags}</div>
+      <div class="mt-5"><button class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-900 font-semibold hover:opacity-90" data-gallery="${idx}">Ver galeria</button></div>`;
+    grid.appendChild(el);
+  });
+  const modal = document.createElement('div');
+  modal.className = "fixed inset-0 hidden items-center justify-center bg-black/70 p-4 z-50";
+  modal.innerHTML = `
+    <div class="bg-slate-900 border border-white/10 rounded-2xl max-w-4xl w-full overflow-hidden">
+      <div class="flex items-center justify-between p-4 border-b border-white/10">
+        <div class="font-semibold">Galeria do Projeto</div>
+        <button id="modalClose" class="px-3 py-1 rounded-lg border border-white/20 hover:border-white/40">Fechar</button>
+      </div>
+      <div id="modalBody" class="p-4 grid gap-4 md:grid-cols-2"></div>
+    </div>`;
+  document.body.appendChild(modal);
+  const modalBody = modal.querySelector('#modalBody');
+  modal.querySelector('#modalClose').addEventListener('click', ()=> modal.classList.add('hidden'));
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-gallery]');
+    if(!btn) return;
+    const idx = +btn.getAttribute('data-gallery');
+    const p = projs[idx];
+    modalBody.innerHTML = (p.images||[]).map(src => `<img src="${src}" alt="screenshot ${p.title}" class="w-full h-auto rounded-xl border border-white/10">`).join('');
+    modal.classList.remove('hidden');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body></html>
