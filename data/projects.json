@@ -1,0 +1,91 @@
+[
+  {
+    "title": "EmoBank — Emoções & Risco em Banking",
+    "repo": "https://github.com/biancafsena",
+    "live": "",
+    "tags": [
+      "Python",
+      "NLP",
+      "SHAP",
+      "R",
+      "Explainable AI"
+    ],
+    "summary": "NLP + ML para detectar emoções e estimar risco de churn/fraude com interpretabilidade (SHAP).",
+    "highlights": [
+      "Precisão 0,86 (macro-F1 0,83) em base sintética.",
+      "Drivers de churn explicados via SHAP (global/local).",
+      "APIs de inferência e dashboards de monitoramento."
+    ],
+    "metrics": [
+      {
+        "label": "Churn médio",
+        "value": "~25%"
+      },
+      {
+        "label": "Fraude média",
+        "value": "~16%"
+      }
+    ],
+    "images": [
+      "assets/emobank-thumb.svg"
+    ]
+  },
+  {
+    "title": "Fraude API — FastAPI + Explainable AI",
+    "repo": "https://github.com/biancafsena",
+    "live": "",
+    "tags": [
+      "FastAPI",
+      "scikit-learn",
+      "LIME",
+      "SHAP",
+      "MLOps"
+    ],
+    "summary": "API REST para score de fraude com retorno explicável e logs prontos para observabilidade.",
+    "highlights": [
+      "Inferência <60ms (local) e contrato OpenAPI.",
+      "Monitoramento de drift/performance do modelo.",
+      "CI/CD (GitLab) com testes e validações."
+    ],
+    "metrics": [
+      {
+        "label": "Latência",
+        "value": "<60ms"
+      },
+      {
+        "label": "Disponibilidade",
+        "value": "99.9% (meta)"
+      }
+    ],
+    "images": [
+      "assets/fraudapi-thumb.svg"
+    ]
+  },
+  {
+    "title": "Dashboards Operacionais — Power BI",
+    "repo": "https://github.com/biancafsena",
+    "live": "",
+    "tags": [
+      "Power BI",
+      "DAX",
+      "ETL",
+      "SLAs",
+      "MTTR"
+    ],
+    "summary": "Painéis executivos para incidentes e operações com storytelling e métricas de SLA/MTTR.",
+    "highlights": [
+      "Distribuição por prioridade e tendências com variação %.",
+      "Segmentações por serviço/grupo/categoria.",
+      "Design limpo com dicas de ferramentas."
+    ],
+    "metrics": [
+      {
+        "label": "Redução de análise",
+        "value": "-35% (estim.)"
+      }
+    ],
+    "images": [
+      "assets/powerbi-thumb.svg"
+    ]
+  }
+]

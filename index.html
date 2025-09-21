@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bianca Sena • Data & AI Portfolio</title>
+  <meta name="description" content="Portfólio de Bianca Sena — Dados, IA, Automação e Cloud."/>
+
+  <!-- Fonts + Tailwind (CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <style>
+    :root { --ring: 0 0 0 3px rgba(14,165,233,.3) }
+    html { scroll-behavior: smooth }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.06) }
+    .card  { transition: transform .25s ease, box-shadow .25s ease }
+    .card:hover { transform: translateY(-4px) }
+
+    /* Snap por seção (Apple-like) */
+    main.snap-container { scroll-snap-type: y mandatory; }
+    section.snap-child { scroll-snap-align: start; min-height: 100vh; }
+
+    /* Parallax leve */
+    .parallax { will-change: transform; transition: transform .15s linear; }
+
+    /* Dots laterais */
+    .dots { position: fixed; right: 16px; top: 50%; transform: translateY(-50%); z-index: 40; }
+    .dot { width: 8px; height: 8px; border-radius: 9999px; background: rgba(255,255,255,.25); margin: 10px 0; }
+    .dot.active { background: white; box-shadow: 0 0 0 6px rgba(255,255,255,.1) }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-[Inter]">
+
+  <!-- HEADER fixo com menu para cada arquivo/âncora -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="inline-block w-8 h-8 rounded-xl ring-1 ring-white/10 overflow-hidden">
+          <img src="assets/profile.jpg" alt="Foto de perfil de Bianca" class="w-full h-full object-cover"/>
+        </span>
+        <span class="text-lg font-extrabold tracking-tight">Bianca Sena</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a class="hover:text-white" href="#sobre">Sobre</a>
+        <a class="hover:text-white" href="#skills">Skills</a>
+        <a class="hover:text-white" href="#experiencia">Experiência</a>
+        <a class="hover:text-white" href="#projetos">Projetos</a>
+        <a class="hover:text-white" href="#contato">Contato</a>
+        <a class="hover:text-white" href="#ferramentas">Ferramentas</a>
+        <a class="hover:text-white" href="#cv">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dots de navegação (ativados por IntersectionObserver) -->
+  <div class="dots hidden md:block">
+    <div class="dot" data-dot="hero"></div>
+    <div class="dot" data-dot="sobre"></div>
+    <div class="dot" data-dot="skills"></div>
+    <div class="dot" data-dot="experiencia"></div>
+    <div class="dot" data-dot="projetos"></div>
+    <div class="dot" data-dot="contato"></div>
+    <div class="dot" data-dot="ferramentas"></div>
+    <div class="dot" data-dot="cv"></div>
+  </div>
+
+  <!-- Conteúdo: seções vazias que receberão os HTMLs parciais -->
+  <main class="snap-container overflow-x-hidden">
+    <section id="hero" class="snap-child"></section>
+    <section id="sobre" class="snap-child"></section>
+    <section id="skills" class="snap-child"></section>
+    <section id="experiencia" class="snap-child"></section>
+    <section id="projetos" class="snap-child"></section>
+    <section id="contato" class="snap-child"></section>
+    <section id="ferramentas" class="snap-child"></section>
+    <section id="cv" class="snap-child"></section>
+  </main>
+
+  <footer class="py-8 text-center text-slate-500 border-t border-white/10">
+    © <span id="year"></span> Bianca Sena — Data • IA • Automação
+  </footer>
+
+  <script>
+    // Carrega um HTML parcial e injeta no container alvo
+    async function loadSection(targetId, path) {
+      const res = await fetch(path);
+      const html = await res.text();
+      document.getElementById(targetId).innerHTML = html;
+    }
+
+    // Carrega todas as seções
+    Promise.all([
+      loadSection('hero', 'sections/hero.html'),
+      loadSection('sobre', 'sections/sobre.html'),
+      loadSection('skills', 'sections/skills.html'),
+      loadSection('experiencia', 'sections/experiencia.html'),
+      loadSection('projetos', 'sections/projetos.html'),
+      loadSection('contato', 'sections/contato.html'),
+      loadSection('ferramentas', 'sections/ferramentas.html'),
+      loadSection('cv', 'sections/cv.html'),
+    ]).then(() => {
+      // Parallax leve nos blobs do hero (se existirem)
+      const parallaxEls = document.querySelectorAll('.parallax');
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        parallaxEls.forEach(el => {
+          const speed = parseFloat(el.getAttribute('data-speed') || '0.2');
+          el.style.transform = `translateY(${y * speed * 0.2}px)`;
+        });
+      }, { passive: true });
+
+      // IntersectionObserver para ativar dots
+      const sections = document.querySelectorAll('main > section');
+      const dotById = {};
+      document.querySelectorAll('.dot').forEach(d => dotById[d.dataset.dot] = d);
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            Object.values(dotById).forEach(d => d.classList.remove('active'));
+            if (dotById[id]) dotById[id].classList.add('active');
+          }
+        });
+      }, { threshold: 0.6 });
+
+      sections.forEach(sec => io.observe(sec));
+
+      // Ano do rodapé
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

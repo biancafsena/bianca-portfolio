@@ -1,0 +1,27 @@
+[
+  {
+    "role": "Engenheira de Dados Sênior — TO Brasil",
+    "period": "abr/2024 — atual",
+    "highlights": [
+      "Automação em Python, ETL/ELT (Airflow), Power BI para operação e liderança.",
+      "AWS/Azure: Lambda, S3, Functions; Docker/K8s; GitLab CI/CD.",
+      "Projetos LATAM (Brasil/Chile/México/Argentina) e Espanha."
+    ]
+  },
+  {
+    "role": "Cientista de Dados Sênior — Sinqia",
+    "period": "jun/2022 — set/2023",
+    "highlights": [
+      "SPB/PIX: detecção de fraude e previsões de liquidez.",
+      "Databricks, ML (árvores, SVM, redes), Tableau."
+    ]
+  },
+  {
+    "role": "Eng. Dados Sr / Dev Dados Pl / Analista — Indra",
+    "period": "2019 — 2022",
+    "highlights": [
+      "Data Science para sistemas críticos (SPB, PIX, DDA).",
+      "NLP e GenAI para auditoria e relatórios."
+    ]
+  }
+]

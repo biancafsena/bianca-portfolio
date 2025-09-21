@@ -1,0 +1,86 @@
+
+<!-- PROJETOS -->
+<div class="max-w-7xl mx-auto px-4 py-16 w-full">
+  <div class="flex items-end justify-between">
+    <h2 class="text-3xl font-extrabold">Projetos em Destaque</h2>
+    <a href="https://github.com/biancafsena" target="_blank" rel="noopener"
+       class="text-sm text-slate-300 hover:text-white">Ver todos no GitHub →</a>
+  </div>
+  <div id="proj-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
+
+<script>
+(async () => {
+  async function loadJSON(path){ const r = await fetch(path); return await r.json(); }
+  const projs = await loadJSON('projects.json');
+  const grid = document.getElementById('proj-grid');
+
+  projs.forEach((p, idx) => {
+    const el = document.createElement('div');
+    el.className = "p-6 rounded-2xl border border-white/10 glass card";
+
+    const thumb = (p.images && p.images[0])
+      ? `<img src="${p.images[0]}" alt="thumb ${p.title}" class="w-full h-44 object-cover rounded-xl border border-white/10"/>`
+      : "";
+
+    const metrics = (p.metrics || [])
+      .map(m => `<div class='text-center'><div class='text-xl font-extrabold'>${m.value}</div><div class='text-xs text-slate-400'>${m.label}</div></div>`)
+      .join('');
+
+    const tags = (p.tags || [])
+      .map(t => `<span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10">${t}</span>`)
+      .join('');
+
+    el.innerHTML = `
+      ${thumb}
+      <div class="mt-4 flex items-start justify-between gap-3">
+        <h3 class="font-semibold text-lg">${p.title}</h3>
+        <div class="flex gap-2">
+          ${p.repo ? `<a href="${p.repo}" target="_blank" class="text-sm underline">Repo</a>` : ""}
+          ${p.live ? `<a href="${p.live}" target="_blank" class="text-sm underline">Demo</a>` : ""}
+        </div>
+      </div>
+      <p class="mt-2 text-slate-300">${p.summary}</p>
+      <ul class="mt-3 text-slate-300 list-disc pl-5 space-y-1">
+        ${(p.highlights || []).map(h => `<li>${h}</li>`).join('')}
+      </ul>
+      <div class="mt-4 grid grid-cols-3 gap-3">${metrics}</div>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs">${tags}</div>
+      <div class="mt-5">
+        <button class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-900 font-semibold hover:opacity-90" data-gallery="${idx}">
+          Ver galeria
+        </button>
+      </div>`;
+
+    grid.appendChild(el);
+  });
+
+  // Modal único
+  const modal = document.createElement('div');
+  modal.className = "fixed inset-0 hidden items-center justify-center bg-black/70 p-4 z-50";
+  modal.innerHTML = `
+    <div class="bg-slate-900 border border-white/10 rounded-2xl max-w-4xl w-full overflow-hidden">
+      <div class="flex items-center justify-between p-4 border-b border-white/10">
+        <div class="font-semibold">Galeria do Projeto</div>
+        <button id="modalClose" class="px-3 py-1 rounded-lg border border-white/20 hover:border-white/40">Fechar</button>
+      </div>
+      <div id="modalBody" class="p-4 grid gap-4 md:grid-cols-2"></div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const modalBody = modal.querySelector('#modalBody');
+  modal.querySelector('#modalClose').addEventListener('click', () => modal.classList.add('hidden'));
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-gallery]');
+    if (!btn) return;
+    const idx = +btn.getAttribute('data-gallery');
+    const p = projs[idx];
+    modalBody.innerHTML = (p.images || [])
+      .map(src => `<img src="${src}" alt="screenshot ${p.title}" class="w-full h-auto rounded-xl border border-white/10">`)
+      .join('');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  });
+})();
+</script>
